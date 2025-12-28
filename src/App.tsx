@@ -1,11 +1,35 @@
+import { useToast } from "./components/toast/ToastContext";
 
-
-function App() {
+const App = () => {
+  const { showToast } = useToast();
   return (
-    <main className="flex flex-col items-center gap-8 py-16 max-w-[1280px] mx-auto">
-      <h1>Use fetch created in a custom hook</h1>
-    </main>
+    <div className="p-4">
+      <button
+        className="border p-2 rounded-md text-sm mr-2"
+        onClick={() => {
+          showToast("Hurray", "Success");
+        }}
+      >
+        Show Success
+      </button>
+      <button
+        className="border p-2 rounded-md text-sm mr-2"
+        onClick={() => {
+          showToast("Hurray", "Error");
+        }}
+      >
+        Show Error
+      </button>
+      <button
+        className="border p-2 rounded-md text-sm mr-2"
+        onClick={() => {
+          showToast("Hurray", "Info");
+        }}
+      >
+        Show Info
+      </button>
+    </div>
   );
-}
+};
 
 export default App;
